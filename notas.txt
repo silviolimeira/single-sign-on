@@ -40,3 +40,8 @@ https://www.youtube.com/watch?v=6fyUJ5MFutc&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
 Authorized redirect URIs
 http://localhost:8080/login/oauth2/code/google
   
+
+Part 05: Spring Boot 3.0.0 Security (part 05) MultipleSecurityFilterChan Beans
+https://www.youtube.com/watch?v=Yn2oCmHI7hc&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=7
+
+
