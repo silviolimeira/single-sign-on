@@ -16,5 +16,13 @@ https://www.youtube.com/watch?v=EfaQp3OS5yI&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
   Create security User
     application properties
     
-    
 
+Part 02:
+https://www.youtube.com/watch?v=pd-sJtq3xO0&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=3
+
+  Create security User
+    InMemoryUserDetailsManager
+
+
+    
+  
