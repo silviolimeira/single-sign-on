@@ -1,0 +1,20 @@
+
+Spring Boot Security
+
+https://www.youtube.com/watch?v=bpDO2gOWiXI&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To
+
+Using generated security password: 76d...
+With the user: user for login and password automatically generated on start project on development
+
+Part 01:
+https://www.youtube.com/watch?v=EfaQp3OS5yI&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=2
+
+  Security Configuration
+    Security Filter Chain
+      Formlogin
+      HttpBasic
+  Create security User
+    application properties
+    
+    
+
