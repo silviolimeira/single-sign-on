@@ -46,6 +46,7 @@ https://www.youtube.com/watch?v=Yn2oCmHI7hc&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
 
 
 Part 06: Spring Boot 3.0.2 Security
+https://www.youtube.com/watch?v=NIcrB6tJjLg&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=8
 
   Create MyUserDetailsService
   Create Login success
