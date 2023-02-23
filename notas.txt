@@ -24,5 +24,13 @@ https://www.youtube.com/watch?v=pd-sJtq3xO0&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
     InMemoryUserDetailsManager
 
 
+Part 03: Spring Boot 3 Security (part 03) Jdbc User Details Manager
+https://www.youtube.com/watch?v=hlDKz5xTs08&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=4
+
+  Create security User
+    JdbcUserDetailsManager
+    H2 Database
+    
+    
     
   
