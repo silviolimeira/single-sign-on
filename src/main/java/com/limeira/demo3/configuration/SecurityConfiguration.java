@@ -68,7 +68,7 @@ public class SecurityConfiguration {
 	SecurityFilterChain securityFilterChain3(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(authConfig -> {
 			authConfig.requestMatchers("/h2-console/*").permitAll();
-			authConfig.anyRequest().permitAll();
+			authConfig.anyRequest().denyAll();
 		}).csrf().disable().headers().frameOptions().disable().and().formLogin(Customizer.withDefaults())
 		.httpBasic(Customizer.withDefaults()).oauth2Login(Customizer.withDefaults());
 		return http.build();
