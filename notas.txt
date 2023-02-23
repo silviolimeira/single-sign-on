@@ -32,5 +32,11 @@ https://www.youtube.com/watch?v=hlDKz5xTs08&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
     H2 Database
     
     
-    
+Part 04: Spring Boot 3.0.2 Security (part 04) Single-Sign On
+https://www.youtube.com/watch?v=Y-m6TYW1aqE&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=5
+Create credentials
+https://www.youtube.com/watch?v=6fyUJ5MFutc&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=6
+
+Authorized redirect URIs
+http://localhost:8080/login/oauth2/code/google
   

@@ -2,7 +2,6 @@ package com.limeira.demo3.configuration;
 
 import javax.sql.DataSource;
 
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,11 +23,11 @@ public class SecurityConfiguration {
 		http.authorizeHttpRequests(authConfig -> {
 			authConfig.requestMatchers("/h2-console/*").permitAll();
 			authConfig.requestMatchers(HttpMethod.GET, "/").permitAll();
-			authConfig.requestMatchers(HttpMethod.GET, "/user").hasRole("USER");
+			authConfig.requestMatchers(HttpMethod.GET, "/user").hasAnyAuthority("USER", "ROLE_USER", "OIDC_USER");
 			authConfig.requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN");
 			authConfig.anyRequest().authenticated();
 		}).csrf().disable().headers().frameOptions().disable().and().formLogin(Customizer.withDefaults())
-				.httpBasic(Customizer.withDefaults());
+				.httpBasic(Customizer.withDefaults()).oauth2Login(Customizer.withDefaults());
 
 		return http.build();
 	}
