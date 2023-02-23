@@ -19,7 +19,7 @@ public class HomeController {
 
 	@GetMapping("/admin")
 	public String admin(Authentication authentication) {
-		return "<h1>Welcome \" + authentication.getName + \"!</h1>";
+		return "<h1>Welcome" + authentication.getAuthorities() + "!</h1>";
 	}
 
 }
