@@ -80,6 +80,8 @@ https://www.youtube.com/watch?v=D0tJNkfY2-0&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
 Part 11: Multiple Authentication Providers
 https://www.youtube.com/watch?v=tfHfvy57H_w&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=13
 
+Part 12: Create a MySecurityLoginConfigurer
+
 
 
 
