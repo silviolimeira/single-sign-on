@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.limeira.demo3.services.MyUserDetailsService;
 
@@ -25,7 +26,10 @@ public class SecurityConfiguration {
 			authConfig.requestMatchers(HttpMethod.GET, "/user").hasAnyAuthority("USER", "ROLE_USER", "OIDC_USER");
 			authConfig.requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN");
 			authConfig.anyRequest().authenticated();
-		}).csrf().disable().formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
+		}).csrf().disable()
+		.addFilterBefore(new MySecurityFilter(), UsernamePasswordAuthenticationFilter.class)
+		.formLogin(Customizer.withDefaults())
+		.httpBasic(Customizer.withDefaults());
 
 		return http.build();
 	}
