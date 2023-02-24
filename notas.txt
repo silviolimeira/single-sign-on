@@ -46,10 +46,32 @@ https://www.youtube.com/watch?v=Yn2oCmHI7hc&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L
 
 
 Part 06: Spring Boot 3.0.2 Security
+https://www.youtube.com/watch?v=NIcrB6tJjLg&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=8
 
   Create MyUserDetailsService
   Create Login success
     & failure Event
     
     
+Part 07: Spring Boot 3.0.2 Security (part 07) MyUserDetailsService with a Database connection
+
+docker command:
+docker run -d -p 3306:3306 --name mydb --env MARIADB_USER=usuario --env MARIADB_PASSWORD=123456 --env MARIADB_ROOT_PASSWORD=123456  mariadb:latest
+
+file: application.properties
+spring.datasource.url=jdbc:mariadb://localhost:3306/mydb?createDatabaseIfNotExist=true
+#jdbc:mariadb://localhost:3306/mydb?useSsl=false;createDatabaseIfNotExist=true;
+spring.datasource.username=root
+spring.datasource.password=123456
+spring.datasource.dbcp2.driver-class-name=org.mariadb.jdbc.Driver
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MariaDB103Dialect
+
+spring.jpa.defer-datasource-initialization=true
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.generate-ddl=false
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
 
