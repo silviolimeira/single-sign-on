@@ -77,6 +77,9 @@ spring.jpa.properties.hibernate.format_sql=true
 Part 09: Create a custom MySecurityFilter
 https://www.youtube.com/watch?v=D0tJNkfY2-0&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=11
 
+Part 11: Multiple Authentication Providers
+https://www.youtube.com/watch?v=tfHfvy57H_w&list=PLbuI9mmWSoUEIatm6_1KPaJIJfYX5L4To&index=13
+
 
 
 

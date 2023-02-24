@@ -1,9 +1,15 @@
 package com.limeira.demo3.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationEventPublisher;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,21 +21,31 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.limeira.demo3.services.MyUserDetailsService;
 
+import providers.MySecurityAuthenticationProvider;
+import providers.TestAuthenticationProvider;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
+	
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationEventPublisher publisher, UserDetailsService userDetailsService) throws Exception {
+		
+		List<AuthenticationProvider> list = new ArrayList<>();
+		list.add(new MySecurityAuthenticationProvider(userDetailsService));
+		list.add(new TestAuthenticationProvider());
+		var providerManager = new ProviderManager(list);
+		providerManager.setAuthenticationEventPublisher(publisher);
+		
 		http.authorizeHttpRequests(authConfig -> {
 			authConfig.requestMatchers(HttpMethod.GET, "/").permitAll();
 			authConfig.requestMatchers(HttpMethod.GET, "/user").hasAnyAuthority("USER", "ROLE_USER", "OIDC_USER");
 			authConfig.requestMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN");
 			authConfig.anyRequest().authenticated();
 		}).csrf().disable()
-		.addFilterBefore(new MySecurityFilter(), UsernamePasswordAuthenticationFilter.class)
-		.formLogin(Customizer.withDefaults())
-		.httpBasic(Customizer.withDefaults());
+		.addFilterBefore(new MySecurityFilter(providerManager), UsernamePasswordAuthenticationFilter.class)
+		.formLogin(Customizer.withDefaults())   // login with browser and Build in form
+		.httpBasic(Customizer.withDefaults());  // login with Insonia or Postman and Basic Auth
 
 		return http.build();
 	}
