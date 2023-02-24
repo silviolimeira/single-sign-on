@@ -1,5 +1,6 @@
 package com.limeira.demo3.entities;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -58,4 +59,10 @@ public class Users {
 	
 	@Builder.Default
 	private Boolean enabled = true;
+	
+	private String firstName;
+	private String lastName;
+	private String fullName;
+	private String emailAddress;
+	private LocalDate birthDate;
 }

@@ -4,6 +4,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.limeira.demo3.entities.MyUser;
+
 @RestController
 public class HomeController {
 
@@ -19,7 +21,14 @@ public class HomeController {
 
 	@GetMapping("/admin")
 	public String admin(Authentication authentication) {
-		return "<h1>Welcome Admin</h1><h2>" + authentication.getAuthorities() + "!</h2>";
+		MyUser myUser = (MyUser) authentication.getPrincipal();
+		
+		return "<h1>Welcome Admin</h1><h2>" + authentication.getAuthorities() + "!</h2>" +
+		"<p>MyUser:<br>User name: " + myUser.getUsername() +
+		"<br>User lastname: " + myUser.getLastName() +
+		"<br>User fullname: " + myUser.getFullName() +
+		"<br>User email address: " + myUser.getEmailAddress() +
+		"<br>Authorities> " + myUser.getAuthorities();
 	}
 
 }

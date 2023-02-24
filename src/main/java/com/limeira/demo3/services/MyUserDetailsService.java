@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.limeira.demo3.entities.MyUser;
 import com.limeira.demo3.entities.Users;
 import com.limeira.demo3.repositories.UsersRepository;
 
@@ -43,8 +44,9 @@ public class MyUserDetailsService implements UserDetailsService {
 			grantedAuthorities.add(new SimpleGrantedAuthority(authority.getAuthority()));
 		});
 
-		return User.builder().username(user.getUsername()).password(user.getPassword()).authorities(grantedAuthorities)
-				.disabled(!user.getEnabled()).build();
+		return new MyUser(user.getUsername(), user.getPassword(), user.getAccountNonExpired(), user.getAccountNonLocked(), 
+				user.getCredentialsNonExpired(), user.getEnabled(), grantedAuthorities,
+				user.getFirstName(), user.getLastName(), user.getEmailAddress(), user.getBirthDate());
 	}
 
 }
